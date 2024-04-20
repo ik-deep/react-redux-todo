@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import './App.css'
+import TaskInput from './components/TaskInput';
+import TaskList from './components/TaskList';
+import { useDispatch,useSelector } from 'react-redux';
+import {deleteAll} from './redux/todoApp/actions'
 
 function App() {
+  const dispatch = useDispatch();
+  const [editFormVisibility,setEditFormVisibilty] = useState(false);
+  const todos = useSelector((state)=> state.operationsReducer);
+const [editTodo, setEditTodo] = useState('');
+
+ const handleEditClick=(todo)=>{
+  setEditFormVisibilty(true);
+  setEditTodo(todo);
+ }
+
+ const cancelUpdate=()=>{
+  setEditFormVisibilty(false)
+ }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>TODO-APP USING REACT-REDUX</h1>
+      <TaskInput editFormVisibility={editFormVisibility} editTodo={editTodo} cancelUpdate={cancelUpdate}/>
+      <TaskList handleEditClick={handleEditClick} editFormVisibility={editFormVisibility}/>
+      {todos.length >0 &&   <button className='btn btn-danger btn-md dekete-all' onClick={()=> dispatch(deleteAll())}>DELETE ALL</button>}
+    
     </div>
   );
 }
