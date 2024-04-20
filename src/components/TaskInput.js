@@ -52,7 +52,7 @@ const TaskInput = ({editFormVisibility , editTodo,cancelUpdate}) =>{
              ) : (
                 <div className="main">
                 <form className="form-group custom-form" onSubmit={editSubmit}>
-                 <label>Update your todo-item</label>
+                 <h3>Update your todo-item</h3>
                  <div className="input-and-btn d-flex">
                      <input type="text" className="form-control" required value={editValue} onChange={e=>setEditValue(e.target.value)}/>
                      <button type="submit" className="btn btn-secondary btn-md" >Update</button>
