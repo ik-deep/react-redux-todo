@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {Icon} from 'react-icons-kit';
 import {trash} from 'react-icons-kit/feather/trash';
 import {edit2} from 'react-icons-kit/feather/edit2';
-import { removeTodo} from "../redux/todoApp/actions";
+import { removeTodo,toggleTodo} from "../redux/todoApp/actions";
 const TaskList = ({editFormVisibility,handleEditClick}) =>{
    const todos = useSelector((state)=> state.operationsReducer);
 const dispatch = useDispatch();
@@ -14,7 +14,7 @@ const dispatch = useDispatch();
             <div className="content">
                 {
                     editFormVisibility===false&&(
-                        <input type="checkbox" checked={todo.completed}></input>
+                        <input type="checkbox" checked={todo.completed} onChange={()=> dispatch(toggleTodo(todo.id))}></input>
                     )
                 }
               

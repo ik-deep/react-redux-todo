@@ -25,7 +25,7 @@ const [editTodo, setEditTodo] = useState('');
       <h1>TODO-APP USING REACT-REDUX</h1>
       <TaskInput editFormVisibility={editFormVisibility} editTodo={editTodo} cancelUpdate={cancelUpdate}/>
       <TaskList handleEditClick={handleEditClick} editFormVisibility={editFormVisibility}/>
-      {todos.length >0 &&   <button className='btn btn-danger btn-md dekete-all' onClick={()=> dispatch(deleteAll())}>DELETE ALL</button>}
+      {todos.length >0 &&   <button className='btn btn-danger btn-md delete-all' onClick={()=> dispatch(deleteAll())}>DELETE ALL</button>}
     
     </div>
   );

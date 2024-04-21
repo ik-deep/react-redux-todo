@@ -13,12 +13,15 @@ const initialState = [];
     case DELETE_ALL:
             return [];
     case TOGGLE_TODO:
-        return {
-          ...state,
-          tasks: state.tasks.map((task) =>
-            task.id === action.payload ? { ...task, completed: !task.completed } : task
-          ),
-        };
+        let todoArray = [];
+        state.map((item)=>{
+          if(item.id===action.payload){
+            item.completed= !item.completed;
+          }
+          todoArray.push(item);
+          return todoArray;
+        })
+        return todoArray;
     case UPDATE_TODO:
             let data = action.payload;
             const updateArray= [];
