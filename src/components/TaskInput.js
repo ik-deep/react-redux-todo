@@ -42,22 +42,22 @@ const TaskInput = ({editFormVisibility , editTodo,cancelUpdate}) =>{
         {
             editFormVisibility===false?(   <div className="main">
             <form className="form-group custom-form" onSubmit={handleSubmit}>
-             <h3 style={{color:"GrayText"}}>Add your todo-items</h3>
-             <div className="input-and-btn d-flex">
-                 <input type="text" className="form-control" required value={todoValue} onChange={(e)=>setTodoValue(e.target.value)}/>
-                 <button type="submit" className="btn btn-secondary btn-md">Add</button>
+             <h3>📝 Add New Task</h3>
+             <div className="input-and-btn">
+                 <input type="text" className="form-control" placeholder="✨ What amazing thing will you accomplish today?" required value={todoValue} onChange={(e)=>setTodoValue(e.target.value)}/>
+                 <button type="submit" className="btn btn-secondary">➕ Add Task</button>
              </div>
             </form>
              </div>
              ) : (
                 <div className="main">
                 <form className="form-group custom-form" onSubmit={editSubmit}>
-                 <h3 style={{color:"GrayText"}}>Update your todo-item</h3>
-                 <div className="input-and-btn d-flex">
+                 <h3>✏️ Edit Task</h3>
+                 <div className="input-and-btn">
                      <input type="text" className="form-control" required value={editValue} onChange={e=>setEditValue(e.target.value)}/>
-                     <button type="submit" className="btn btn-secondary btn-md" >Update</button>
+                     <button type="submit" className="btn btn-secondary">✔️ Update</button>
                  </div>
-                 <button type="button" className="btn btn-primary btn-md" onClick={cancelUpdate}>Back</button>
+                 <button type="button" className="btn btn-primary" onClick={cancelUpdate}>← Back</button>
                 </form>
                 </div>
              )

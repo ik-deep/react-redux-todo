@@ -22,11 +22,10 @@ const [editTodo, setEditTodo] = useState('');
 
   return (
     <div className="App">
-      <h1>TODO-APP USING REACT-REDUX</h1>
+      <h1>🎆 TaskMaster Pro</h1>
       <TaskInput editFormVisibility={editFormVisibility} editTodo={editTodo} cancelUpdate={cancelUpdate}/>
       <TaskList handleEditClick={handleEditClick} editFormVisibility={editFormVisibility}/>
-      {todos.length >0 &&   <button className='btn btn-danger btn-md delete-all' onClick={()=> dispatch(deleteAll())}>DELETE ALL</button>}
-    
+      {todos.length > 0 && <button className='btn btn-danger delete-all' onClick={()=> dispatch(deleteAll())}>🗑️ Clear All Tasks</button>}
     </div>
   );
 }
